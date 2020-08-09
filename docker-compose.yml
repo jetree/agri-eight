@@ -8,3 +8,19 @@ services:
     ports:
       - "8080:8080"
     command: node server.js
+    depends_on:
+      - mysql
+
+  mysql:
+    image: hypriot/rpi-mysql
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=agri-eight
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+    container_name: db
+    ports:
+      - 3306:3306
