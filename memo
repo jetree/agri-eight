@@ -1,0 +1,2 @@
+#サーバーの起動
+npx nodemon server.js

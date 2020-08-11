@@ -1,24 +1,34 @@
 'use strict';
 
-const express = require('express');
+const express = require('express')
+require('dotenv').config()
 
-// // Constants
-const PORT = 8080;
+const PORT = 8080
 
-// // App
 const app = express();
+const mysql = require('mysql')
+
+const host = process.env.HOST
+const user = process.env.USERNAME
+const password = process.env.PASSWORD
+
+const connection = mysql.createConnection({
+  host: host,
+  user: user,
+  password: password
+})
+
+connection.connect((err) => {
+  if (err) throw err
+  console.log('connected to mysql')
+}) 
+
 app.get('/', (req, res) => {
-  res.send('Hello World2');
-});
+  res.send('Hello World2')
+})
+app.post('/conditions', (req, res) => {
+  
+})
 
 app.listen(PORT);
 console.log(`Running on http://localhost:${PORT}`);
-
-// const http = require('http');
-// const PORT = 8808;
-// http.createServer((request, response) => {
-//   response.writeHead(200, { 'Content-Type': 'text/plain' });
-//   response.end('Hello Nodejs');
-// }).listen(PORT);
-
-// console.log(`Server running at http://localhost:${PORT}/`);
