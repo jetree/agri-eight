@@ -1,12 +1,16 @@
 'use strict';
 
 const express = require('express')
+const bodyParser = require('body-parser')
 require('dotenv').config()
 
 const PORT = 8080
 
 const app = express();
 const mysql = require('mysql')
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const host = process.env.HOST
 const user = process.env.USERNAME
@@ -27,7 +31,9 @@ app.get('/', (req, res) => {
   res.send('Hello World2')
 })
 app.post('/conditions', (req, res) => {
-  
+  console.log(req)
+  res.send(req.body)
+  // res.send('conditions!')
 })
 
 app.listen(PORT);
