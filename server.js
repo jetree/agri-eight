@@ -31,8 +31,11 @@ app.get('/', (req, res) => {
   res.send('Hello World2')
 })
 app.post('/conditions', (req, res) => {
-  console.log(req)
-  res.send(req.body)
+  const pi = req.body
+  console.log(pi)
+  // DBへの登録処理
+
+  res.send('DBへ登録しました')
   // res.send('conditions!')
 })
 
