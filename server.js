@@ -31,6 +31,13 @@ connection.connect((err) => {
 app.get('/', (req, res) => {
   res.send('Hello World2')
 })
+app.get('/conditions', (req, res) => {
+  const sql = 'SELECT * FROM`agri-eight`.`conditions` LIMIT 100'
+  connection.query(sql,(err, result, feilds) => {
+    if (err) throw err
+    console.log(result)
+  })
+})
 app.post('/conditions', (req, res) => {
   const pi = req.body.pi
   // DBへの登録処理
