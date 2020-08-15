@@ -1,2 +1,8 @@
 #サーバーの起動
 npx nodemon server.js
+
+すでに起動している場合
+ps alx
+３列目PIDを確認し
+kill 00000
+で削除
