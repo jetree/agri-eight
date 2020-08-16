@@ -7,7 +7,7 @@ services:
       - .:/app
     ports:
       - "8080:8080"
-    command: node server.js
+    # command: npx nodemon server.js
     depends_on:
       - mysql
 
@@ -21,6 +21,7 @@ services:
       - MYSQL_DATABASE=agri-eight
       - MYSQL_USER=test
       - MYSQL_PASSWORD=test
+      - "TZ=Asia/Tokyo"
     container_name: db
     ports:
       - 3306:3306

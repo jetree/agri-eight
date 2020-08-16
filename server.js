@@ -35,7 +35,7 @@ app.get('/conditions', (req, res) => {
   const sql = 'SELECT * FROM`agri-eight`.`conditions` LIMIT 100'
   connection.query(sql,(err, result, feilds) => {
     if (err) throw err
-    console.log(result)
+    res.send(result)
   })
 })
 app.post('/conditions', (req, res) => {
@@ -51,9 +51,6 @@ app.post('/conditions', (req, res) => {
     if (err) throw err
     console.log(result)
   })
-
-  res.send('DBへ登録しました')
-  // res.send('conditions!')
 })
 
 app.listen(PORT);
