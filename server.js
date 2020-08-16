@@ -49,7 +49,9 @@ app.post('/conditions', (req, res) => {
     },
     (err, result, fields) => {
     if (err) throw err
-    console.log(result)
+      console.log(result)
+      let date = new Date
+      res.send(date.toLocaleString() + 'DBへ登録しました')
   })
 })
 
