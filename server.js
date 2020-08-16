@@ -45,7 +45,8 @@ app.post('/conditions', (req, res) => {
   connection.query(sql,
     {
       machine_id: pi.machine_id,
-      temp: pi.temp
+      temp: pi.temp,
+      CPU_temp: pi.cpu_temp
     },
     (err, result, fields) => {
     if (err) throw err
