@@ -1,0 +1,1 @@
+ALTER TABLE conditions ADD CPU_temp float NULL AFTER water_temp
