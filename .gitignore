@@ -1,4 +1,4 @@
 .env
-/mysql/ib_logfile0
-/mysql/ibdata1
 nohup.out
+back/mysql/ib_logfile0
+back/mysql/ibdata1
